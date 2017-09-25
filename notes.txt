@@ -1,0 +1,40 @@
+feature detection
+what "features" should we be detecting?
+localized features - keypoint features/interest points
+edges
+edge profiles
+edges can be grouped into "curves" & "straight line segments"
+analyze straight line segments to find vanishing points
+
+2 approaches to finding feature points:
+1) find features in one image that can be accurately tracked using a local search technique such as correlation or least squares
+
+2) independently detect features in ALL the images, then match features based on their local appearance.
+
+how can we find image locations where we can reliably find correspondences with other images?
+what are good features to track?
+
+patches with large contrast changes are easier to localize
+
+simplest matching criterion for two image patches: weighted summed square difference.
+
+correspondence: matching points, patches, edges, or regions, across images.
+
+keypoint matching overview:
+1) find a set of distinctive key points
+2) define a region around each keypoint
+3) compute a local descriptor from the normalized region
+4) match local descriptors that are similar under a threshold
+
+- try to detect points that are repeatable and distinctive
+
+P A N O R A M A - S T I T C H I N G:
+1) Identify the interest points
+2) extract vector feature descriptor surrounding each interest point
+3) determine correspondence between descriptors in two views
+
+what makes a good feature?
+-repeatability: same feature can be found in several images despite transformations
+-saliency: each feature is distinctive
+-compactness and efficiency: many fewer features than image pixels
+-locality: occupies relatively small area of image
