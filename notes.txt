@@ -1,3 +1,8 @@
+
+
+
+
+
 feature detection
 what "features" should we be detecting?
 localized features - keypoint features/interest points
@@ -38,3 +43,13 @@ what makes a good feature?
 -saliency: each feature is distinctive
 -compactness and efficiency: many fewer features than image pixels
 -locality: occupies relatively small area of image
+
+corner detection: basic idea is that a window shifted in any direction will result in a large change in intensity
+
+Harris corner detector:
+
+1) Compute horizontal and vertical derivatives Ix and Iy by convolving original image with derivatives of Gaussians
+2) Compute three images corresponding to the outer products of these gradients
+3) Convolve each of these images with a larger Gaussian
+4) Compute a scalar interest measure using one of the formulas discussed above
+5) Find local maxima above a certain threshold and report them as detected feature point locations
